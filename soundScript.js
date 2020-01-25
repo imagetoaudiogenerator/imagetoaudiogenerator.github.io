@@ -45,6 +45,15 @@ function playTone() {
   sound.triggerAttackRelease(tonality + register, sustain + "n");
 }
 
+var waitTime;
+
+function importHSL(array, i) {
+  if (i < array.length) {
+    //console.log(i);
+    convertHSL(array[i].h, array[i].s, array[i].l);
+    setTimeout(function (){importHSL(array, i + 1)}, waitTime);
+  }
+}
 
 /*
 h (scale from 0 to 360): tonality and register (1C to 6B) aka (1 to 42)
@@ -56,7 +65,6 @@ s (percentage): sustain (1, 2, 4, 8, 16)
 l (percentage): dynamics (-20 to 20) aka (0 to 40)
 2.5 l /per/ dynamics increase
 */
-
 
 function convertHSL(hValue, sValue, lValue) {
   var reducedH = hValue;
@@ -99,7 +107,7 @@ function convertHSL(hValue, sValue, lValue) {
     regi = "2";
     tona = "D";
   }
-  else if (reducedH > 9 * 8.5 && reducedH <= 10 * 8.5) {
+  else if (reducedH > 9 * 8.5 && reducedH <= 11 * 8.5) { //twice as likely to appear because I wrote teh code wrong and don't want to change it
     regi = "2";
     tona = "E";
   }
@@ -232,27 +240,41 @@ function convertHSL(hValue, sValue, lValue) {
     tona = "B";
   }
 
+  console.log(reducedH);
+  //console.log(regi);
+  //console.log(tona);
+
   var reducedS = sValue;
 
   if (reducedS <= 20) {
     reducedS = 1;
+
+    waitTime = 125;
   }
   else if (reducedS > 20 && reducedS <= 40) {
     reducedS = 2;
+
+    waitTime = 250;
   }
   else if (reducedS > 40 && reducedS <= 60) {
     reducedS = 4;
+
+    waitTime = 500;
   }
   else if (reducedS > 60 && reducedS <= 80) {
     reducedS = 8;
+
+    waitTime = 1000;
   }
   else if (reducedS > 80 && reducedS <= 100) {
     reducedS = 16;
+
+    waitTime = 2000;
   }
 
   var reducedL = (lValue / 2.5) - 20;
 
-  console.log(regi + " " + tona + " // " + reducedS + " // " + reducedL);
+  //console.log(regi + " " + tona + " // " + reducedS + " // " + reducedL);
 
   setRegi(regi);
   setTona(tona);

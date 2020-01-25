@@ -105,7 +105,7 @@ function getImageSectionValues(img, widthSections, heightSections)
       averages.push(getImageDataHSLAverages(imageData.data));
     }
   }
-  console.log(averages);
+  //console.log(averages);
   return averages
 }
 
