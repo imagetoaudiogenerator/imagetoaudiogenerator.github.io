@@ -12,6 +12,7 @@
     <br><br>
     <h1>Image processing</h1>
     <h3>Image upload</h3>
+    <h3>Sound tweaking</h3>
     <br><br>
     <h1>Sound creation</h1>
     <h3>Calculation of tonality, sustain, and dynamics</h3>
@@ -25,6 +26,14 @@
       <option onclick="setTone('A')">A</option>
       <option onclick="setTone('B')">B</option>
     </select>
+    <select>
+      <option onclick="setRegi('1')">1</option>
+      <option onclick="setRegi('2')">2</option>
+      <option onclick="setRegi('3')">3</option>
+      <option onclick="setRegi('4')">4</option>
+      <option onclick="setRegi('5')">5</option>
+      <option onclick="setRegi('6')">6</option>
+    </select>
     <p>Set sustain</p>
     <select>
       <option onclick="setSust('1')">Whole note</option>
@@ -34,10 +43,18 @@
       <option onclick="setSust('16')">Sixteenth note</option>
       <option onclick="setSust('32')">Thirty-second note</option>
     </select>
-    <!--<p>Set dynamics</p>
-    <button onclick="setDyna()">Set</button>-->
+    <p>Set dynamics</p>
+    <input id="dynamics">
+    <button onclick="setDyna(document.getElementById('dynamics').value)">Set</button>
+    <h3>Sound tweaking</h3>
+    <p>Set instrument</p>
+    <select>
+      <option onclick="setInst(new Tone.PolySynth().toMaster());setDyna('5')">PolySynth</option>
+      <option onclick="setInst(new Tone.MonoSynth().toMaster());setDyna('-15')">MonoSynth</option>
+      <option onclick="setInst(new Tone.FMSynth().toMaster());setDyna('5')">FMSynth</option>
+      <option onclick="setInst(new Tone.AMSynth().toMaster());setDyna('5')">AMSynth</option>
+    </select>
     <h3>Sound output</h3>
     <button onclick="playTone()">Play test tone</button>
-    <h3>Sound tweaking</h3>
   </body>
 </html>
