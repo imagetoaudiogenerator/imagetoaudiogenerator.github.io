@@ -125,5 +125,5 @@ function getImageDataHSLAverages(imageData)
     lTotal += colorObj.l;
   }
 
-  return [hTotal/pixelCount, sTotal/pixelCount, lTotal/pixelCount];
+  return {h: hTotal/pixelCount, s: sTotal/pixelCount, l: lTotal/pixelCount};
 }
