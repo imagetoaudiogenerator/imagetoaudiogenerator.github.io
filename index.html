@@ -15,17 +15,13 @@
     <h3>Sound tweaking</h3>
     <br><br>
     <h1>Sound creation</h1>
+    <h3>Converting from HSL</h3>
+    <input id="h">
+    <input id="s">
+    <input id="l">
+    <button onclick="convertHSL(document.getElementById('h').value, document.getElementById('s').value, document.getElementById('l').value)">Convert</button>
     <h3>Calculation of tonality, sustain, and dynamics</h3>
     <p>Set tonality</p>
-    <select>
-      <option onclick="setTone('C')">C</option>
-      <option onclick="setTone('D')">D</option>
-      <option onclick="setTone('E')">E</option>
-      <option onclick="setTone('F')">F</option>
-      <option onclick="setTone('G')">G</option>
-      <option onclick="setTone('A')">A</option>
-      <option onclick="setTone('B')">B</option>
-    </select>
     <select>
       <option onclick="setRegi('1')">1</option>
       <option onclick="setRegi('2')">2</option>
@@ -34,6 +30,15 @@
       <option onclick="setRegi('5')">5</option>
       <option onclick="setRegi('6')">6</option>
     </select>
+    <select>
+      <option onclick="setTona('C')">C</option>
+      <option onclick="setTona('D')">D</option>
+      <option onclick="setTona('E')">E</option>
+      <option onclick="setTona('F')">F</option>
+      <option onclick="setTona('G')">G</option>
+      <option onclick="setTona('A')">A</option>
+      <option onclick="setTona('B')">B</option>
+    </select>
     <p>Set sustain</p>
     <select>
       <option onclick="setSust('1')">Whole note</option>
@@ -41,7 +46,6 @@
       <option onclick="setSust('4')">Quarter note</option>
       <option onclick="setSust('8')">Eighth note</option>
       <option onclick="setSust('16')">Sixteenth note</option>
-      <option onclick="setSust('32')">Thirty-second note</option>
     </select>
     <p>Set dynamics</p>
     <input id="dynamics">
