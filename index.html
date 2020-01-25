@@ -15,7 +15,29 @@
     <br><br>
     <h1>Sound creation</h1>
     <h3>Calculation of tonality, sustain, and dynamics</h3>
+    <p>Set tonality</p>
+    <select>
+      <option onclick="setTone('C')">C</option>
+      <option onclick="setTone('D')">D</option>
+      <option onclick="setTone('E')">E</option>
+      <option onclick="setTone('F')">F</option>
+      <option onclick="setTone('G')">G</option>
+      <option onclick="setTone('A')">A</option>
+      <option onclick="setTone('B')">B</option>
+    </select>
+    <p>Set sustain</p>
+    <select>
+      <option onclick="setSust('1')">Whole note</option>
+      <option onclick="setSust('2')">Half note</option>
+      <option onclick="setSust('4')">Quarter note</option>
+      <option onclick="setSust('8')">Eighth note</option>
+      <option onclick="setSust('16')">Sixteenth note</option>
+      <option onclick="setSust('32')">Thirty-second note</option>
+    </select>
+    <!--<p>Set dynamics</p>
+    <button onclick="setDyna()">Set</button>-->
     <h3>Sound output</h3>
+    <button onclick="playTone()">Play test tone</button>
     <h3>Sound tweaking</h3>
   </body>
 </html>
