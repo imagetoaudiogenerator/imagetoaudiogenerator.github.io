@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="stylesheetworking.css">
+    <script src="tone.js"></script>
+    <script src="imageScript.js"></script>
+    <script src="soundScript.js"></script>
+    <meta charset="utf-8">
+    <title>ImageToAudio</title>
+  </head>
+  <body>
+
+    <div id="header">
+    Title Here!
+    </div>
+
+    <h1>Upload & Playback</h1>
+
+    <div id="playbackInputs">
+
+    <button class="distinctButton" onclick="document.getElementById('imageUpload').click();">Upload Image</button>
+    <input type="file" id="imageUpload" style="display:none;" onchange="loadFile(event)"></input>
+    <button class="distinctButton" onclick="playImage()">Enjoy</button>
+    </div>
+
+    <div id="playbackOptions">
+
+    <p>Set instrument</p>
+    <select>
+      <option onclick="setInst(new Tone.PolySynth().toMaster());setDyna('5')">PolySynth</option>
+      <option onclick="setInst(new Tone.MonoSynth().toMaster());setDyna('-15')">MonoSynth</option>
+      <option onclick="setInst(new Tone.FMSynth().toMaster());setDyna('5')">FMSynth</option>
+      <option onclick="setInst(new Tone.AMSynth().toMaster());setDyna('5')">AMSynth</option>
+    </select>
+
+    <p>Rows:</p>
+    <input id="rowInput" type="number" name="quantity" min="1" max="1000" value="4">
+    <p>Columns:</p>
+    <input id="columnInput" type="number" name="quantity" min="1" max="1000" value="4">
+    </div>
+
+  </body>
+</html>

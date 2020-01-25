@@ -283,3 +283,10 @@ function convertHSL(hValue, sValue, lValue) {
 
   playTone();
 }
+
+function playImage()
+{
+  var rowInput = document.getElementById("rowInput").value
+  var columnInput = document.getElementById("columnInput").value
+  importHSL(getImageSectionValues(img, rowInput, columnInput), 0)
+}
