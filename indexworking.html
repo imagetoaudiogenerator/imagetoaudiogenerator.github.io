@@ -6,37 +6,47 @@
     <script src="imageScript.js"></script>
     <script src="soundScript.js"></script>
     <meta charset="utf-8">
-    <title>ImageToAudio</title>
+    <title>ImageToAudio Generator</title>
   </head>
   <body>
 
     <div id="header">
-    Title Here!
+      ImageToAudio Generator
     </div>
 
-    <h1>Upload & Playback</h1>
+    <h1>Step 1: Choose an image to upload!</h1>
 
-    <div id="playbackInputs">
-
-    <button class="distinctButton" onclick="document.getElementById('imageUpload').click();">Upload Image</button>
-    <input type="file" id="imageUpload" style="display:none;" onchange="loadFile(event)"></input>
-    <button class="distinctButton" onclick="playImage()">Enjoy</button>
+    <div class="interactionArea">
+      <button class="distinctButton" onclick="document.getElementById('imageUpload').click();">Upload Image</button>
+      <input type="file" id="imageUpload" style="display:none;" onchange="loadFile(event)"></input>
     </div>
 
-    <div id="playbackOptions">
+    <h1>Step 2: Tweak your settings!</h1>
 
-    <p>Set instrument</p>
-    <select>
-      <option onclick="setInst(new Tone.PolySynth().toMaster());setDyna('5')">PolySynth</option>
-      <option onclick="setInst(new Tone.MonoSynth().toMaster());setDyna('-15')">MonoSynth</option>
-      <option onclick="setInst(new Tone.FMSynth().toMaster());setDyna('5')">FMSynth</option>
-      <option onclick="setInst(new Tone.AMSynth().toMaster());setDyna('5')">AMSynth</option>
-    </select>
+    <div class="interactionArea">
+      <div id="options">
+        <p>Set instrument</p>
+        <select>
+          <option onclick="setInst(new Tone.PolySynth().toMaster());setDyna('5')">PolySynth</option>
+          <option onclick="setInst(new Tone.MonoSynth().toMaster());setDyna('-15')">MonoSynth</option>
+          <option onclick="setInst(new Tone.FMSynth().toMaster());setDyna('5')">FMSynth</option>
+          <option onclick="setInst(new Tone.AMSynth().toMaster());setDyna('5')">AMSynth</option>
+          <option onclick="setInst(new Tone.DuoSynth().toMaster());setDyna('5')">DuoSynth</option>
+          <option onclick="setInst(new Tone.MembraneSynth().toMaster());setDyna('-15')">MembraneSynth</option>
+          <option onclick="setInst(new Tone.PluckSynth().toMaster());setDyna('5')">PluckSynth</option>
+        </select>
 
-    <p>Rows:</p>
-    <input id="rowInput" type="number" name="quantity" min="1" max="1000" value="4">
-    <p>Columns:</p>
-    <input id="columnInput" type="number" name="quantity" min="1" max="1000" value="4">
+        <p>Rows:</p>
+        <input id="rowInput" type="number" name="quantity" min="1" max="1000" value="4">
+        <p>Columns:</p>
+        <input id="columnInput" type="number" name="quantity" min="1" max="1000" value="4">
+      </div>
+    </div>
+
+    <h1>Step 3: Play your song!</h1>
+
+    <div class="interactionArea">
+      <button class="distinctButton" onclick="playImage()">Enjoy</button>
     </div>
 
   </body>

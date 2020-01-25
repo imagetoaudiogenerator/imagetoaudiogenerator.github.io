@@ -3,6 +3,7 @@ html
   margin: 0;
   padding: 0;
 }
+
 body
 {
   text-align: center;
@@ -21,14 +22,17 @@ body
   font-size: 3em;
 }
 
-#playbackInputs
+#options {
+  margin: 30px;
+}
+
+.interactionArea
 {
-    display:flex;
-    align-items: horizontal;
-    margin: 20px;
-    justify-content: center;
-    background: black;
-    flex: 1 1 content;
+  display: flex;
+  align-items: horizontal;
+  margin: 20px;
+  justify-content: center;
+  background: black;
 }
 
 .distinctButton
@@ -41,14 +45,11 @@ body
     color: white;
     font-size: 2em;
     margin: 20px;
+
+    font-family: Consolas, monospace;
 }
 
 .distinctButton:hover
 {
   background-color: #B045C3;
-}
-
-button
-{
-  background-color:
 }
