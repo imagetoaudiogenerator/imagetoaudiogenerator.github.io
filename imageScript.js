@@ -3,6 +3,13 @@
 var canvas;
 var ctx;
 var img;
+
+var visCanvas;
+var vtx;
+
+const VISCANVAS_WIDTH = 500;
+const VISCANVAS_HEIGHT = 500;
+
 // var canvas = document.createElement("canvas");
 window.onload = function () {
 //canvas = document.getElementById("mainCanvas");
@@ -10,6 +17,9 @@ canvas = document.createElement("canvas");
 canvas.width = 3000;
 canvas.height = 3000;
 ctx = canvas.getContext("2d");
+
+visCanvas = document.getElementById("displayCanvas");
+vtx = visCanvas.getContext("2d");
 }
 
 //from colorsys.js
@@ -126,4 +136,74 @@ function getImageDataHSLAverages(imageData)
   }
 
   return {h: hTotal/pixelCount, s: sTotal/pixelCount, l: lTotal/pixelCount};
+}
+
+function drawVisualizationGrid(rows, columns)
+{
+  for (var x = 0; x < rows; x++)
+  {
+    vtx.beginPath();
+    vtx.moveTo(0, (x/rows)*visCanvas.height);
+    vtx.lineTo(visCanvas.width, (x/rows)*visCanvas.height);
+    vtx.stroke();
+  }
+  for (var y = 0; y < columns; y++)
+  {
+    vtx.beginPath();
+    vtx.moveTo((y/columns)*visCanvas.width, 0);
+    vtx.lineTo((y/columns)*visCanvas.width, visCanvas.height);
+    vtx.stroke();
+  }
+}
+
+function drawVisualizationSquare(row, column)
+{
+  var maxRow = document.getElementById("rowInput").value;
+  var maxColumn = document.getElementById("columnInput").value;
+
+  var rectWidth = visCanvas.width/maxColumn;
+  var rectHeight = visCanvas.height/maxRow;
+
+  vtx.fillStyle='#ffffff77';
+  vtx.fillRect(column*rectWidth, row*rectHeight, rectWidth, rectHeight);
+}
+
+function startVisualization(baseWidth, baseHeight)
+{
+  console.log("?")
+
+  visCanvas.width = baseWidth;
+  visCanvas.height = baseHeight;
+
+  var scaleFactor = 0;
+
+  if (img.width > img.height && visCanvas.width > img.width)
+  {
+    scaleFactor = img.height/visCanvas.height;
+  }
+  else if (img.height > img.width && visCanvas.height > img.height)
+  {
+    scaleFactor = img.width/visCanvas.width;
+  }
+  else if (img.width > img.height && visCanvas.width <= img.width)
+  {
+    scaleFactor = img.width/visCanvas.width;
+  }
+  else if (img.height > img.width && visCanvas.height <= img.height)
+  {
+    scaleFactor = img.height/visCanvas.height;
+  }
+  else
+  {
+    scaleFactor = img.height/visCanvas.height;
+  }
+
+  visCanvas.width = img.width/scaleFactor;
+  visCanvas.height = img.height/scaleFactor;
+
+
+  vtx.drawImage(img, 0, 0, img.width/scaleFactor, img.height/scaleFactor);
+
+
+  drawVisualizationGrid(document.getElementById("rowInput").value, document.getElementById("columnInput").value)
 }
