@@ -51,6 +51,7 @@ function importHSL(array, i) {
   if (i < array.length) {
     //console.log(i);
     convertHSL(array[i].h, array[i].s, array[i].l);
+    setSliders(array[i].h, array[i].s, array[i].l);
     setTimeout(function (){importHSL(array, i + 1)}, waitTime);
   }
 }
@@ -239,10 +240,6 @@ function convertHSL(hValue, sValue, lValue) {
     regi = "6";
     tona = "B";
   }
-
-  console.log(reducedH);
-  //console.log(regi);
-  //console.log(tona);
 
   var reducedS = sValue;
 

@@ -5,6 +5,7 @@
     <script src="tone.js"></script>
     <script src="imageScript.js"></script>
     <script src="soundScript.js"></script>
+    <script src="sliderAnimation.js"></script>
     <meta charset="utf-8">
     <title>ImageToAudio Generator</title>
   </head>
@@ -24,7 +25,7 @@
     <h1>Step 2: Tweak your settings!</h1>
 
     <div class="interactionArea">
-      <div id="options">
+      <div class="interactionElement">
         <p>Set instrument</p>
         <select>
           <option onclick="setInst(new Tone.PolySynth().toMaster());setDyna('5')">PolySynth</option>
@@ -46,7 +47,30 @@
     <h1>Step 3: Play your song!</h1>
 
     <div class="interactionArea">
-      <button class="distinctButton" onclick="playImage()">Enjoy</button>
+      <button class="distinctButton" onclick="playImage()">Play</button>
+    </div>
+
+    <h1>Step 4: Watch the audio visualizations!</h1>
+
+    <div class="interactionArea">
+      <div class="interactionElement">
+
+      </div>
+      <div class="interactionElement" id="animation">
+        <div class="titleSubelement">
+          <h2>Pitch</h2>
+        </div>
+        <div class="titleSubelement">
+          <h2>Length</h2>
+        </div>
+        <div class="titleSubelement">
+          <h2>Loudness</h2>
+        </div>
+
+        <img src="Images/tonality_slider.png" alt="An animation showing the tonality of the current note being played" class="animationSubelement" id="tona">
+        <img src="Images/sustain_slider.png" alt="An animation showing the sustain of the current note being played" class="animationSubelement" id="sust">
+        <img src="Images/dynamics_slider.png" alt="An animation showing the dynamics of the current note being played" class="animationSubelement" id="dyna">
+      </div>
     </div>
 
   </body>

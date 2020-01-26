@@ -14,6 +14,10 @@ body
   padding: 0;
 }
 
+h2 {
+  color: white;
+}
+
 #header
 {
   margin-top: 0;
@@ -22,8 +26,10 @@ body
   font-size: 3em;
 }
 
-#options {
-  margin: 30px;
+#animation {
+  width: 580px;
+  height: 700px;
+  background-color: white;
 }
 
 .interactionArea
@@ -33,6 +39,26 @@ body
   margin: 20px;
   justify-content: center;
   background: black;
+}
+
+.interactionElement {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 30px;
+}
+
+.titleSubelement {
+  margin: 30px;
+  width: 130px;
+  height: 70px;
+  background-color: black;
+}
+
+.animationSubelement {
+  margin: 30px;
+  width: 130px;
+  height: 130px;
+  margin-top: 400px;
 }
 
 .distinctButton
