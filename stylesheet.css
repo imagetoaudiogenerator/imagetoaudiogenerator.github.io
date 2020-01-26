@@ -1,0 +1,101 @@
+html
+{
+  margin: 0;
+  padding: 0;
+}
+
+body
+{
+  text-align: center;
+  font-family: Consolas, monospace;
+  background-color: #7ab35a;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  color: white;
+}
+
+select {
+  font-size: 1.5em;
+}
+
+input {
+  font-size: 1em;
+}
+
+#header
+{
+  margin-top: 0px;
+  background-color: #0b1108;
+  text-align:left;
+  font-size: 3em;
+}
+
+#animation {
+  width: 580px;
+  height: 700px;
+  background-color: white;
+}
+
+#footer {
+  margin-bottom: 0px;
+  background-color: #0b1108;
+  text-align:left;
+  font-size: 2em;
+}
+
+.interactionArea
+{
+  display: flex;
+  align-items: horizontal;
+  flex-flow: wrap;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-right: 80px;
+  margin-left: 80px;
+  justify-content: center;
+  background: #0b1108;
+}
+
+.interactionElement {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 30px;
+  font-size: 18px;
+}
+
+.titleSubelement {
+  margin: 30px;
+  width: 130px;
+  height: 70px;
+  background-color: #0b1108;
+}
+
+.animationSubelement {
+  margin: 30px;
+  width: 130px;
+  height: 130px;
+  margin-top: 400px;
+}
+
+.distinctButton
+{
+    width:200px;
+    height:150px;
+    background-color: #A035B3;
+    border: none;
+    transition: 0.3s;
+    color: white;
+    font-size: 2em;
+    margin: 20px;
+
+    font-family: Consolas, monospace;
+}
+
+.distinctButton:hover
+{
+  background-color: #B045C3;
+}

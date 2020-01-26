@@ -5,65 +5,84 @@
     <script src="tone.js"></script>
     <script src="imageScript.js"></script>
     <script src="soundScript.js"></script>
+    <script src="sliderAnimation.js"></script>
     <meta charset="utf-8">
-    <title>ImageToAudio</title>
+    <title>ImageToAudio Generator</title>
   </head>
   <body>
-    <br><br>
-    <h1>Image processing</h1>
-    <h3>Image upload</h3>
-    <input type="file" id="imageUpload" onchange="loadFile(event)">
-    <button onclick="importHSL(getImageSectionValues(img, 4, 4), 0)">Convert and play HSL</button>
-    <h3>Sound tweaking</h3>
-    <br><br>
-    <h1>Sound creation</h1>
-    <h3>Converting from HSL</h3>
-    <input id="h">
-    <input id="s">
-    <input id="l">
-    <button onclick="convertHSL(document.getElementById('h').value, document.getElementById('s').value, document.getElementById('l').value)">Convert</button>
-    <h3>Calculation of tonality, sustain, and dynamics</h3>
-    <p>Set tonality</p>
-    <select>
-      <option onclick="setRegi('1')">1</option>
-      <option onclick="setRegi('2')">2</option>
-      <option onclick="setRegi('3')">3</option>
-      <option onclick="setRegi('4')">4</option>
-      <option onclick="setRegi('5')">5</option>
-      <option onclick="setRegi('6')">6</option>
-    </select>
-    <select>
-      <option onclick="setTona('C')">C</option>
-      <option onclick="setTona('D')">D</option>
-      <option onclick="setTona('E')">E</option>
-      <option onclick="setTona('F')">F</option>
-      <option onclick="setTona('G')">G</option>
-      <option onclick="setTona('A')">A</option>
-      <option onclick="setTona('B')">B</option>
-    </select>
-    <p>Set sustain</p>
-    <select>
-      <option onclick="setSust('1')">Whole note</option>
-      <option onclick="setSust('2')">Half note</option>
-      <option onclick="setSust('4')">Quarter note</option>
-      <option onclick="setSust('8')">Eighth note</option>
-      <option onclick="setSust('16')">Sixteenth note</option>
-    </select>
-    <p>Set dynamics</p>
-    <input id="dynamics">
-    <button onclick="setDyna(document.getElementById('dynamics').value)">Set</button>
-    <h3>Sound tweaking</h3>
-    <p>Set instrument</p>
-    <select>
-      <option onclick="setInst(new Tone.PolySynth().toMaster());setDyna('5')">PolySynth</option>
-      <option onclick="setInst(new Tone.MonoSynth().toMaster());setDyna('-15')">MonoSynth</option>
-      <option onclick="setInst(new Tone.FMSynth().toMaster());setDyna('5')">FMSynth</option>
-      <option onclick="setInst(new Tone.AMSynth().toMaster());setDyna('5')">AMSynth</option>
-      <option onclick="setInst(new Tone.DuoSynth().toMaster());setDyna('5')">DuoSynth</option>
-      <option onclick="setInst(new Tone.MembraneSynth().toMaster());setDyna('-15')">MembraneSynth</option>
-      <option onclick="setInst(new Tone.PluckSynth().toMaster());setDyna('5')">PluckSynth</option>
-    </select>
-    <h3>Sound output</h3>
-    <button onclick="playTone()">Play test tone</button>
+
+    <div id="header">
+      ImageToAudio Generator
+    </div>
+
+    <h1>Step 1: Choose an image to upload!</h1>
+
+    <div class="interactionArea">
+      <button class="distinctButton" onclick="document.getElementById('imageUpload').click();">Upload Image</button>
+      <input type="file" id="imageUpload" style="display:none;" onchange="loadFile(event)"></input>
+    </div>
+
+    <h1>Step 2: Tweak your settings!</h1>
+
+    <div class="interactionArea">
+      <div class="interactionElement">
+        <p>Set instrument:</p>
+        <select>
+          <option onclick="setInst(new Tone.PolySynth().toMaster());setDyna('5')">PolySynth</option>
+          <option onclick="setInst(new Tone.MonoSynth().toMaster());setDyna('-15')">MonoSynth</option>
+          <option onclick="setInst(new Tone.FMSynth().toMaster());setDyna('5')">FMSynth</option>
+          <option onclick="setInst(new Tone.AMSynth().toMaster());setDyna('5')">AMSynth</option>
+          <option onclick="setInst(new Tone.DuoSynth().toMaster());setDyna('5')">DuoSynth</option>
+          <option onclick="setInst(new Tone.MembraneSynth().toMaster());setDyna('-15')">MembraneSynth</option>
+          <option onclick="setInst(new Tone.PluckSynth().toMaster());setDyna('5')">PluckSynth</option>
+        </select>
+      </div>
+
+      <div class="interactionElement">
+        <p>Rows:</p>
+        <input id="rowInput" type="number" name="quantity" min="1" max="1000" value="4">
+      </div>
+
+      <div class="interactionElement">
+        <p>Columns:</p>
+        <input id="columnInput" type="number" name="quantity" min="1" max="1000" value="4">
+      </div>
+    </div>
+
+    <h1>Step 3: Play your song!</h1>
+
+    <div class="interactionArea">
+      <button class="distinctButton" onclick="playImage()">Play</button>
+    </div>
+
+    <h1>Step 4: Watch the audio visualizations!</h1>
+
+    <div class="interactionArea">
+      <div class="interactionElement" id="animation">
+        <div class="titleSubelement">
+          <h2>Pitch</h2>
+        </div>
+        <div class="titleSubelement">
+          <h2>Length</h2>
+        </div>
+        <div class="titleSubelement">
+          <h2>Loudness</h2>
+        </div>
+        <img src="Images/tonality_slider.png" alt="An animation showing the tonality of the current note being played" class="animationSubelement" id="tona">
+        <img src="Images/sustain_slider.png" alt="An animation showing the sustain of the current note being played" class="animationSubelement" id="sust">
+        <img src="Images/dynamics_slider.png" alt="An animation showing the dynamics of the current note being played" class="animationSubelement" id="dyna">
+      </div>
+    </div>
+
+    <div class="interactionArea">
+      <div class="interactionElement">
+        <canvas id="displayCanvas"></canvas>
+      </div>
+    </div>
+
+    <div id="footer">
+      Made by Owen Hellum and Jonah McKay during ConUHacks V, <a href="http://bit.ly/2Gkuatx">Website plan</a>, <a href="https://github.com/Owmacohe/ImageToAudio">GitHub</a>
+    </div>
+
   </body>
 </html>
