@@ -161,11 +161,11 @@ function drawVisualizationSquare(row, column)
   var maxRow = document.getElementById("rowInput").value;
   var maxColumn = document.getElementById("columnInput").value;
 
-  var rectWidth = visCanvas.width/maxRow;
-  var rectHeight = visCanvas.height/maxColumn;
+  var rectWidth = visCanvas.width/maxColumn;
+  var rectHeight = visCanvas.height/maxRow;
 
   vtx.fillStyle='#ffffff77';
-  vtx.fillRect(row*rectWidth, column*rectHeight, rectWidth, rectHeight);
+  vtx.fillRect(column*rectWidth, row*rectHeight, rectWidth, rectHeight);
 }
 
 function startVisualization(baseWidth, baseHeight)

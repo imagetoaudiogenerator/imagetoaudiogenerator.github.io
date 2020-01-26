@@ -49,8 +49,8 @@ var waitTime;
 
 function importHSL(array, i) {
   startVisualization(VISCANVAS_WIDTH, VISCANVAS_HEIGHT);
-  var visRectRow = i%document.getElementById("rowInput").value;
-  var visRectCol = Math.floor(i/document.getElementById("columnInput").value);
+  var visRectCol = i%document.getElementById("columnInput").value;
+  var visRectRow = Math.floor(i/document.getElementById("columnInput").value);
   console.log(`VIS RECT: x: ${visRectRow} y: ${visRectCol}`);
   drawVisualizationSquare(visRectRow, visRectCol);
 
