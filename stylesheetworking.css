@@ -18,6 +18,14 @@ h2 {
   color: white;
 }
 
+select {
+  font-size: 18px;
+}
+
+input {
+  font-size: 18px;
+}
+
 #header
 {
   margin-top: 0;
@@ -45,6 +53,7 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   margin: 30px;
+  font-size: 18px;
 }
 
 .titleSubelement {

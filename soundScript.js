@@ -51,7 +51,7 @@ function importHSL(array, i) {
   startVisualization(VISCANVAS_WIDTH, VISCANVAS_HEIGHT);
   var visRectCol = i%document.getElementById("columnInput").value;
   var visRectRow = Math.floor(i/document.getElementById("columnInput").value);
-  console.log(`VIS RECT: x: ${visRectRow} y: ${visRectCol}`);
+  //console.log(`VIS RECT: x: ${visRectRow} y: ${visRectCol}`);
   drawVisualizationSquare(visRectRow, visRectCol);
 
   if (i < array.length) {

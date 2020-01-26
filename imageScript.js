@@ -7,8 +7,8 @@ var img;
 var visCanvas;
 var vtx;
 
-const VISCANVAS_WIDTH = 500;
-const VISCANVAS_HEIGHT = 500;
+const VISCANVAS_WIDTH = 1000;
+const VISCANVAS_HEIGHT = 1000;
 
 // var canvas = document.createElement("canvas");
 window.onload = function () {
@@ -170,7 +170,7 @@ function drawVisualizationSquare(row, column)
 
 function startVisualization(baseWidth, baseHeight)
 {
-  console.log("?")
+  //console.log("?")
 
   visCanvas.width = baseWidth;
   visCanvas.height = baseHeight;

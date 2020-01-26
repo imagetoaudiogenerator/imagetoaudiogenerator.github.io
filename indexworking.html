@@ -26,7 +26,7 @@
 
     <div class="interactionArea">
       <div class="interactionElement">
-        <p>Set instrument</p>
+        <p>Set instrument:</p>
         <select>
           <option onclick="setInst(new Tone.PolySynth().toMaster());setDyna('5')">PolySynth</option>
           <option onclick="setInst(new Tone.MonoSynth().toMaster());setDyna('-15')">MonoSynth</option>
@@ -36,9 +36,14 @@
           <option onclick="setInst(new Tone.MembraneSynth().toMaster());setDyna('-15')">MembraneSynth</option>
           <option onclick="setInst(new Tone.PluckSynth().toMaster());setDyna('5')">PluckSynth</option>
         </select>
+      </div>
 
+      <div class="interactionElement">
         <p>Rows:</p>
         <input id="rowInput" type="number" name="quantity" min="1" max="1000" value="4">
+      </div>
+
+      <div class="interactionElement">
         <p>Columns:</p>
         <input id="columnInput" type="number" name="quantity" min="1" max="1000" value="4">
       </div>
@@ -53,9 +58,6 @@
     <h1>Step 4: Watch the audio visualizations!</h1>
 
     <div class="interactionArea">
-      <div class="interactionElement">
-
-      </div>
       <div class="interactionElement" id="animation">
         <div class="titleSubelement">
           <h2>Pitch</h2>
@@ -66,13 +68,17 @@
         <div class="titleSubelement">
           <h2>Loudness</h2>
         </div>
-
         <img src="Images/tonality_slider.png" alt="An animation showing the tonality of the current note being played" class="animationSubelement" id="tona">
         <img src="Images/sustain_slider.png" alt="An animation showing the sustain of the current note being played" class="animationSubelement" id="sust">
         <img src="Images/dynamics_slider.png" alt="An animation showing the dynamics of the current note being played" class="animationSubelement" id="dyna">
       </div>
     </div>
-    
-    <canvas id="displayCanvas" width=1000 height=1000></canvas>
+
+    <div class="interactionArea">
+      <div class="interactionElement">
+        <canvas id="displayCanvas"></canvas>
+      </div>
+    </div>
+
   </body>
 </html>
