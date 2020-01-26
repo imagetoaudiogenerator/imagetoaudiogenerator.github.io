@@ -48,6 +48,12 @@ function playTone() {
 var waitTime;
 
 function importHSL(array, i) {
+  startVisualization(VISCANVAS_WIDTH, VISCANVAS_HEIGHT);
+  var visRectRow = i%document.getElementById("rowInput").value;
+  var visRectCol = Math.floor(i/document.getElementById("columnInput").value);
+  console.log(`VIS RECT: x: ${visRectRow} y: ${visRectCol}`);
+  drawVisualizationSquare(visRectRow, visRectCol);
+
   if (i < array.length) {
     //console.log(i);
     convertHSL(array[i].h, array[i].s, array[i].l);
